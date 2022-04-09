@@ -11,17 +11,8 @@ posts.init(
       primaryKey: true,
       autoIncrement: true,
     },
-<<<<<<< HEAD:models/posts.js
-    // img: {
-    //   type:DataTypes.BLOB,
-    //   allowNull: false,
-     
-    // },
-    image_url:{
-=======
-    image_url: {//the UUID of the post
->>>>>>> parent of 6be9ada (Merge pull request #13 from csnyder332/main):models/Posts.js
-      type: DataTypes.STRING,
+    img: {
+      type:DataTypes.BLOB,
       allowNull: false,
     },
     caption: {//The top/bottom text to display with the image

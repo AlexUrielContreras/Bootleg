@@ -37,16 +37,8 @@ it will redirect the user to the /post/UUID route and display the single-post.ha
       {{log post.image_url}}
       <div class="username-post">{{user.username}}</div>
       <div class="img-post">
-<<<<<<< HEAD
         <a href={{concat "/post/" post.id}}>
-        <img src ={{concat "./images/" post.image_url}}>
-        {{!--<img src="data:image/png;base64,{{post.img}}">--}}
-=======
-        <a href={{concat "/post/" image_url}}>
-          <img src={{concat "./images/" image_url}}>
-          <div class="main-cpt"><h5>{{caption}}</h5></div>
-        </a>
->>>>>>> parent of 6be9ada (Merge pull request #13 from csnyder332/main)
+        <img src={{BufferToImg post.img}}>
       </div>
     </li>
     {{/each}}

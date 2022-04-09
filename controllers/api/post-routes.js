@@ -8,60 +8,23 @@ const upload = multer({ dest: './public/images/' })
 const { v4: uuidv4 } = require('uuid');
 
 //create post
-<<<<<<< HEAD
 router.post("/", withAuth, upload.single("image"), async (req, res) => {
-  try {
-    const UUID =uuidv4();
-    const imagePath="https://group-project-bootleg.herokuapp.com/images/"+UUID+".png"
-    // console.log("imagePath:"+imagePath);
-    // console.log(req.files);
-    // console.log(req.body);
-    // const data = await 
-    sharp(req.files.image_input.data)
+  try { 
+    const data = await sharp(req.files.image_input.data)
       .resize(170, 170, {
         fit: sharp.fit.inside,
         withoutEnlargement: true,
-      }).toFile(imagePath);
+      }).toBuffer();
         posts.create({
-          // image,
-          image_url:UUID+".png",
+          img: data,
           caption: req.files.image_input.name,
           user_id: req.session.user_id,
         });
-      
-
     res.redirect("/");
   } catch (err) {
     console.log(err);
     res.json(err);
   }
-=======
-router.post("/",withAuth, upload.single('image'),async (req,res)=>{
-    try{
-        const UUID =uuidv4();
-        const imagePath="https://group-project-bootleg.herokuapp.com/images/"+UUID+".png"
-        console.log("imagePath:"+imagePath);
-        console.log(req.files);
-        console.log(req.body);
-        sharp(req.files.image_input.data)
-        .resize(400, 400, {
-          fit: sharp.fit.inside,
-          withoutEnlargement: true
-        })
-        .toFile(imagePath);
-        posts.create(
-            {
-                image_url:UUID+".png",
-                caption:req.files.image_input.name,
-                user_id:req.session.user_id
-            }
-        )
-        res.redirect("/")
-    }catch(err){
-        console.log(err);
-        res.json(err)
-    }
->>>>>>> parent of 6be9ada (Merge pull request #13 from csnyder332/main)
 });
 //delete a post with the given id
 router.delete("/",async (req,res)=>{

@@ -19,5 +19,8 @@ module.exports = {
     },
     concat:(str1,str2)=>{
       return str1.concat(str2)
+    },
+    BufferToImg:(buffer)=>{
+      return 'data:image/png;base64,' + Buffer.from(buffer).toString('base64')
     }
 };
