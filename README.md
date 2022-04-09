@@ -59,6 +59,6 @@
   
   ## Links
   
-  Deployed site: https://group-project-bootleg.herokuapp.com/
+  Deployed site: https://group-project-bootleg.herokuapp.com/  
   Github repository: https://github.com/AlecRuin/Bootleg
   
