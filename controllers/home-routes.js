@@ -27,8 +27,6 @@ router.get('/', (req, res) => {
             const postData = dbPostData.map(post => post.get({
                 plain: true
             }));
-            console.log("postData: ");
-            console.log(postData);
             res.render('dashboard', {
                 postData,
                 loggedIn: req.session.loggedIn
