@@ -25,7 +25,7 @@
     <div>{{format_date postData.createdAt}}</div>
     <div>{{format_time postData.createdAt}}</div>
 </div>
-<img class="sp-img" src={{concat "../images/" uuid}}> 
+<img class="sp-img" src={{BufferToImg postData.img}}> 
 <div class="cpt-del-comt">
     <div class="caption">{{postData.caption}}</div>
     {{#if (equalto userLoggedIn postData.user_id)}}

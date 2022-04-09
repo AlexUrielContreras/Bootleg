@@ -55,12 +55,12 @@ router.get('/signup', (req, res) => {
 });
 
 //display single post
-router.get("/post/:uuid",async(req,res)=>{
+router.get("/post/:id",async(req,res)=>{
     try{
         console.log(req.params.uuid);
         const dbPostData= await posts.findAll({
             where: {
-                image_url: req.params.uuid
+                id: req.params.id
             },
             include:[
                 {
@@ -91,7 +91,7 @@ router.get("/post/:uuid",async(req,res)=>{
             loggedIn:req.session.loggedIn,
             postData:postsMap,
             userLoggedIn:req.session.user_id,
-            uuid: req.params.uuid,
+            id: req.params.id,
         })
     }catch(err){
         console.log(err);
