@@ -12,9 +12,13 @@ posts.init(
       autoIncrement: true,
     },
     img: {
-      type: 'LONGBLOB',
+      type:DataTypes.LONGBLOB,
       allowNull: false,
      
+    },
+    image_url:{
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     caption: {//The top/bottom text to display with the image
       type: DataTypes.STRING,

@@ -11,18 +11,18 @@ const { v4: uuidv4 } = require("uuid");
 router.post("/", withAuth, upload.single("image"), async (req, res) => {
   try {
     // const UUID =uuidv4();
-    // const imagePath=__dirname+"../../../public/images/"+UUID+".png"
+    const imagePath="https://group-project-bootleg.herokuapp.com/images"+UUID+".png"
     // console.log("imagePath:"+imagePath);
     // console.log(req.files);
     // console.log(req.body);
-    const data = await sharp(req.files.image_input.data)
+    // const data = await 
+    sharp(req.files.image_input.data)
       .resize(170, 170, {
         fit: sharp.fit.inside,
         withoutEnlargement: true,
-      }).toBuffer();
-     
+      }).toFile(imagePath);
         posts.create({
-          img: data,
+          image,
           caption: req.files.image_input.name,
           user_id: req.session.user_id,
         });
