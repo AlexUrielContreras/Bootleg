@@ -27,9 +27,12 @@ router.get('/', (req, res) => {
             const postData = dbPostData.map(post => post.get({
                 plain: true
             }));
+<<<<<<< HEAD
             // postData.forEach(post => {
             //     post.img = post.img.toString("base64");
             // })
+=======
+>>>>>>> parent of 6be9ada (Merge pull request #13 from csnyder332/main)
             console.log("postData: ");
             console.log(postData);
             res.render('dashboard', {
@@ -60,12 +63,12 @@ router.get('/signup', (req, res) => {
 });
 
 //display single post
-router.get("/post/:id",async(req,res)=>{
+router.get("/post/:uuid",async(req,res)=>{
     try{
-        console.log(req.params.id);
+        console.log(req.params.uuid);
         const dbPostData= await posts.findAll({
             where: {
-                id: req.params.id
+                image_url: req.params.uuid
             },
             include:[
                 {
@@ -90,14 +93,13 @@ router.get("/post/:id",async(req,res)=>{
                 postsMap["comments"][key]["userLoggedIn"]=req.session.user_id
             }
         }
-        postsMap.img=postsMap.img.toString("base64");
         console.log("postsMap");
         console.log(postsMap);
         res.render("single-post",{
             loggedIn:req.session.loggedIn,
             postData:postsMap,
             userLoggedIn:req.session.user_id,
-            // uuid: req.params.uuid,
+            uuid: req.params.uuid,
         })
     }catch(err){
         console.log(err);
