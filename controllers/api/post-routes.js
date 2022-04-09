@@ -22,7 +22,8 @@ router.post("/", withAuth, upload.single("image"), async (req, res) => {
         withoutEnlargement: true,
       }).toFile(imagePath);
         posts.create({
-          image,
+          // image,
+          image_url:UUID+".png",
           caption: req.files.image_input.name,
           user_id: req.session.user_id,
         });
