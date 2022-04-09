@@ -11,11 +11,11 @@ posts.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    img: {
-      type:DataTypes.BLOB,
-      allowNull: false,
+    // img: {
+    //   type:DataTypes.BLOB,
+    //   allowNull: false,
      
-    },
+    // },
     image_url:{
       type: DataTypes.STRING,
       allowNull: false,
