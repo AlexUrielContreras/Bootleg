@@ -27,9 +27,9 @@ router.get('/', (req, res) => {
             const postData = dbPostData.map(post => post.get({
                 plain: true
             }));
-            postData.forEach(post => {
-                post.img = post.img.toString("base64");
-            })
+            // postData.forEach(post => {
+            //     post.img = post.img.toString("base64");
+            // })
             console.log("postData: ");
             console.log(postData);
             res.render('dashboard', {
