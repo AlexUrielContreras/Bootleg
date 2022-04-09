@@ -25,7 +25,6 @@
   - [Contribute](#contribute)
   - [Features](#features)
   - [Tests](#tests)
-  - [questions?](#Questions)
   - [License](#license)
   
   ## Installation
@@ -48,10 +47,6 @@
   ## Tests
   N/A
 
-  ## Questions?
-  
-  Github: [](https://github.com/)
-  email: 
 
   ## License
  
