@@ -27,6 +27,9 @@ router.get('/', (req, res) => {
             const postData = dbPostData.map(post => post.get({
                 plain: true
             }));
+            postData.forEach(post => {
+                post.img = post.img.toString("base64");
+            })
             console.log("postData: ");
             console.log(postData);
             res.render('dashboard', {
@@ -57,12 +60,12 @@ router.get('/signup', (req, res) => {
 });
 
 //display single post
-router.get("/post/:uuid",async(req,res)=>{
+router.get("/post/:id",async(req,res)=>{
     try{
-        console.log(req.params.uuid);
+        console.log(req.params.id);
         const dbPostData= await posts.findAll({
             where: {
-                image_url: req.params.uuid
+                id: req.params.id
             },
             include:[
                 {
@@ -87,13 +90,14 @@ router.get("/post/:uuid",async(req,res)=>{
                 postsMap["comments"][key]["userLoggedIn"]=req.session.user_id
             }
         }
+        postsMap.img=postsMap.img.toString("base64");
         console.log("postsMap");
         console.log(postsMap);
         res.render("single-post",{
             loggedIn:req.session.loggedIn,
             postData:postsMap,
             userLoggedIn:req.session.user_id,
-            uuid: req.params.uuid,
+            // uuid: req.params.uuid,
         })
     }catch(err){
         console.log(err);

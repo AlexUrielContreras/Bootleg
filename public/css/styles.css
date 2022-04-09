@@ -1,3 +1,7 @@
+:root {
+    --modal-duration: 1s;
+    --modal-color: #428bca;
+  }
 body {
     box-sizing: border-box;
     margin: 20px 75px 0 55px;
@@ -9,7 +13,7 @@ body {
     display: flex;
 }
 
-.login-out-container {
+.container {
     margin: 50px 400px;
     border: solid 2px black;
     box-shadow: 10px 10px;
@@ -62,17 +66,20 @@ button[type=submit] {
 
 /* POST STYLES */
 
-
+ul {
+    list-style-type: none;
+}
+/*.post-container {
+    margin: 50px 300px 0;
+    border: 2px red solid;
+    height: 70vh;
+}*/
 ul {
     display: flex;
     padding-left: 0;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    list-style-type: none;
-}
-.img-post {
-    margin: 50px 0;
 }
 .username-post {
     margin-top: 50px;
@@ -83,11 +90,12 @@ ul {
   
 }
 .img-post {
-    margin: 20px 0;
+    margin-top: 1px;
+    height: 12vh;
+    width: 35vw;
 }
 img {
     height: auto;
-    
 }
 /* Create New Post */
 .crt-post {
@@ -102,7 +110,6 @@ img {
 }
 input[type=submit] {
    background-color: white;
-
 }
 .post-img, .post-capt {
     display: flex;
@@ -110,81 +117,14 @@ input[type=submit] {
     text-align: center;
 }
 
-/* Single Post Styles */
 
 
-/* Comment styles */
-h2,p {
-    margin: 10px 0;
-    padding-left: 10px;
-}
-p {
-    font-family: sans-serif;
-    letter-spacing: 1.5px;
-    font-size: 25px;
-}
-.comt-container {
-    display: flex;
-    flex-direction: column;
-    width: 40vw;
-    margin-top: 20px;
-}
-.comt-header {
-    border: solid 2px grey;
-    border-radius: 20px;
-
-}
-.toggle-comment-textarea {
-    width: 180px
-}
-.delete-comment-form {
-    display: flex;
-    flex-wrap: wrap;
-}
-.test {
-    margin: 100px 0;
-    display: flex;
-    justify-content: space-around;
-}
-.sp-title-img {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 25px;
-    text-align: center;
-    font-weight: bold;
-}
-.sp-img {
-    align-self: center;
-}
-.caption {
-    text-align: center;
-    width: 500px;
-    font-size: 1.5rem;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    margin-bottom: 25px;
-}
-h5 {
-    font-size: 1.2rem;
-} 
-.main-cpt {
-    width: 35vw;
-}
 
 @media screen and (max-width: 580px) {
     .container, .post-container {
-        margin: 0 ;
+        margin: 0
     }
     .username-post {
         font-size: 4.5vw;
     }
-    .new-post-form{
-        display: flex;
-        flex-direction: column;
-    }
-    .test {
-        flex-direction: column;
-    }
-    
 }
