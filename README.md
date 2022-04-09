@@ -56,3 +56,9 @@
   ## License
  
   ![badge](https://img.shields.io/badge/license-Github,NPM-yellow)<br />
+  
+  ## Links
+  
+  Deployed site: https://group-project-bootleg.herokuapp.com/
+  Github repository: https://github.com/AlecRuin/Bootleg
+  
