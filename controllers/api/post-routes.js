@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require("uuid");
 //create post
 router.post("/", withAuth, upload.single("image"), async (req, res) => {
   try {
-    // const UUID =uuidv4();
+    const UUID =uuidv4();
     const imagePath="https://group-project-bootleg.herokuapp.com/images"+UUID+".png"
     // console.log("imagePath:"+imagePath);
     // console.log(req.files);
