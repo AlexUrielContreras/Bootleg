@@ -47,4 +47,5 @@ user.init(
         modelName: 'user',  
     }
 );
-module.exports = user;
+
+module.exports = posts;
