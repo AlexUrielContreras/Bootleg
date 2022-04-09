@@ -12,7 +12,7 @@ posts.init(
       autoIncrement: true,
     },
     img: {
-      type:DataTypes.LONGBLOB,
+      type:DataTypes.BLOB,
       allowNull: false,
      
     },
