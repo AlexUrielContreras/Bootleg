@@ -12,7 +12,7 @@ posts.init(
       autoIncrement: true,
     },
     img: {
-      type:DataTypes.BLOB,
+      type: DataTypes.BLOB('long'),
       allowNull: false,
     },
     caption: {//The top/bottom text to display with the image

@@ -8,6 +8,7 @@ async function newFormHandler(event) {
     formData.append("caption",Caption)
     formData.append("image_input",newFile)
     console.log(formData);
+    
     const response = await fetch(`/api/posts`, {
         method: 'POST',
         body: formData,
