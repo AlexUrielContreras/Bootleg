@@ -19,7 +19,18 @@ p {
 }
 
 input {
-    padding: .5rem
+    padding: .7rem;
+    border-radius: 10px;
+    background-color: lightgrey;
+    border: none;
+}
+
+button {
+    padding: 7px 20px;
+    background-color: rgb(58, 49, 49);
+    color: lightgrey;
+    border: none;
+    border-radius: 10px;
 }
 
 a {
@@ -31,7 +42,6 @@ header {
     margin: 0 auto;
     border-bottom: solid;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
     padding: 0 2vw;
@@ -41,27 +51,36 @@ header {
 .not-login {
     font-size: 1.5rem
 }
+ 
+.button-loggedin a  {
+    font-size: 2rem;
+    margin: 0 10px
+}
+
+/*      Signup/out Form Styles     */
 
 .login-out-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding-top: 10vh
+    align-items: center;
+    padding-top: 5vh;
 }
 
-.login-out-container div {
-    margin: 0 2vw
+.signup-form, .login-form {
+    margin: 5vh 5vw
 }
 
-
-.login-out-container div label{
+.signup-form label, 
+.login-form label{
     display: block;
-    margin: 1.5vh 0
+    margin: 1.8vh 0
 }
 
-.login-out-container div form label:nth-child(2) {
-    margin-top: 3vh
-}
 
-legend {
-    font-size: 2rem;
+@media screen and (min-width: 550px ) {
+    /*  Login/out Styles  */
+    .login-out-container {
+        flex-direction: row
+    }
 }
