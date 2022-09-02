@@ -7,11 +7,12 @@
   <title>Bootleg</title>
   <link rel="stylesheet" href="/css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
 
 <body>
-  <div class="main-wrapper">
+ 
     <header class="main-header">
       <h1>
         <a href="/" class="title">Bootleg</a>
@@ -27,11 +28,11 @@
             <a href="/login" class="not-login">Login</a>
           </div>
         {{/if}}
-  </header>
-  <main>
-      {{{ body }}}
-  </main>
-  </div>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+
   {{#if loggedIn}}
     <script src="/javascript/log-out.js"></script>
   {{/if}}
