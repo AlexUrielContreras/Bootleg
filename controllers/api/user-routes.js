@@ -5,6 +5,18 @@ const {
     Comment
 } = require('../../models');
 
+router.get('/' , async (req, res) => {
+    try {
+        const dbUserData = await User.findAll({
+            attributes: { exclude: ['password']}
+        })
+
+        res.json(dbUserData)
+    } catch (error) {
+        res.status(500).json(err) 
+    }
+})
+
 // Create a user
 router.post('/', async(req, res) => {
     try{
@@ -63,7 +75,7 @@ router.post("/login",async(req,res)=>{
         })
     }catch(err){
         console.log(err);
-        err ? res.status(500).json(err):console.log("successfully created user")
+        err ? res.status(500).json(err) : console.log("successfully created user")
     }
 })
 router.post('/logout', (req, res) => {
