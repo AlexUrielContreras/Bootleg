@@ -1,27 +1,30 @@
 const router = require('express').Router();
 const {
-    user,
-    posts,
-    comment
+    User,
+    Post,
+    Comment
 } = require('../../models');
+
 // Create a user
 router.post('/', async(req, res) => {
     try{
-        const checkExistingEmail = await user.findOne({
+        const checkExistingEmail = await User.findOne({
             where:{
-                email:req.body.email
+                email: req.body.email
             }
         })
         if (checkExistingEmail){
-            console.log("THERES ALREADY AN ACCOUNT WITH THAT EMAIL");
-            res.status(400).json({message:"bro, that email is already in use 🤨"})
+            console.log("Email already in use. Please try a different email");
+            res.status(400).json({message:"Email already in use"})
             return
         }
-        const dbUserData=await user.create({
+
+        const dbUserData = await User.create({
             username: req.body.username,
             password: req.body.password,
-            email:req.body.email
+            email: req.body.email
         });
+
         req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
@@ -34,6 +37,7 @@ router.post('/', async(req, res) => {
         res.status(500).json(err);
     }
 })
+
 router.post("/login",async(req,res)=>{
     try{
         const dbUserData = await user.findOne({

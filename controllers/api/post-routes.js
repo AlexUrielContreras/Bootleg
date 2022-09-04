@@ -2,7 +2,7 @@ const router = require("express").Router()
 const multer  = require('multer')
 const sharp = require('sharp');
 const withAuth = require("../../utils/auth");
-const posts=require("../../models/posts")
+const { Post } = require("../../models")
 //const upload=require("../../utils/multerMiddleware")
 const upload = multer({ dest: './public/images/' })
 const { v4: uuidv4 } = require('uuid');
@@ -15,7 +15,7 @@ router.post("/", withAuth, upload.single("image"), async (req, res) => {
         fit: sharp.fit.inside,
         withoutEnlargement: true,
       }).toBuffer();
-        posts.create({
+        Post.create({
           img: data,
           caption: req.files.image_input.name,
           user_id: req.session.user_id,
@@ -26,12 +26,13 @@ router.post("/", withAuth, upload.single("image"), async (req, res) => {
     res.json(err);
   }
 });
+
 //delete a post with the given id
 router.delete("/",async (req,res)=>{
     try{
-        const checkPost=await posts.findByPk(req.body.id)
+        const checkPost=await Post.findByPk(req.body.id)
         if (checkPost.dataValues.user_id==req.session.user_id){
-            posts.destroy({
+            Post.destroy({
                 where:{
                     id:req.body.id
                 }

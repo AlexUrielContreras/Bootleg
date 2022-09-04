@@ -25,6 +25,20 @@ async function signupFormHandler(event) {
             alert(response.statusText)
         }
     }
+};
+
+function customError() {
+    const pwInput = document.querySelector('#password-signup')
+    const validityState = pwInput.validity
+
+    console.log(validityState)
+
+    if (validityState.tooShort && !validityState.valid) {
+        pwInput.setCustomValidity('Password must be 5 - 25 characters long');
+    } else {
+        pwInput.setCustomValidity('')
+    }
 }
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('#password-signup').addEventListener('input', customError);

@@ -1,24 +1,24 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const {
-    posts,
-    user,
-    comment
+    Post,
+    User,
+    Comment
 } = require('../models');
 const withAuth = require('../utils/auth');
 
 //Get all images
 router.get('/', (req, res) => {
-    posts.findAll({
+    Post.findAll({
             include: [{
-                    model: comment,
+                    model: Comment,
                     include: {
-                        model: user,
+                        model: User,
                         attributes: ['username',"id"]
                     }
                 },
                 {
-                    model: user,
+                    model: User,
                     attributes: ['username']
                 }
             ]
@@ -58,15 +58,15 @@ router.get('/signup', (req, res) => {
 router.get("/post/:id",async(req,res)=>{
     try{
         console.log(req.params.uuid);
-        const dbPostData= await posts.findAll({
+        const dbPostData= await Post.findAll({
             where: {
                 id: req.params.id
             },
             include:[
                 {
-                    model:comment,
+                    model:Comment,
                     include:[{
-                        model:user,
+                        model:User,
                         attributes:["username","id"]
                     }] 
                 },
@@ -76,10 +76,10 @@ router.get("/post/:id",async(req,res)=>{
                 }
             ]
         });
-        var postsMap = dbPostData.map((postsData)=>
+        var postMap = dbPostData.map((postsData)=>
             postsData.get({plain:true})
         );
-        postsMap=postsMap[0]
+        postMap=postMap[0]
         if (req.session.user_id) {
             for (let key in postsMap["comments"]) {
                 postsMap["comments"][key]["userLoggedIn"]=req.session.user_id
