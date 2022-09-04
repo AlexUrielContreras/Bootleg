@@ -77,9 +77,14 @@ header {
     margin: 1.8vh 0
 }
 
+.signup-form h2,
+.login-form h2 {
+    font-size: 2rem
+}
+
 #err-message {
     color: red;
-    margin: 10px 0 
+    margin-bottom: 10px
 }
 
 
