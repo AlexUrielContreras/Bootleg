@@ -71,7 +71,7 @@ router.get("/post/:id",async(req,res)=>{
                     }] 
                 },
                 {
-                    model:user,
+                    model: User,
                     attributes:["username","id"]
                 }
             ]
@@ -81,15 +81,15 @@ router.get("/post/:id",async(req,res)=>{
         );
         postMap=postMap[0]
         if (req.session.user_id) {
-            for (let key in postsMap["comments"]) {
-                postsMap["comments"][key]["userLoggedIn"]=req.session.user_id
+            for (let key in postMap["comments"]) {
+                postMap["comments"][key]["userLoggedIn"]=req.session.user_id
             }
         }
-        console.log("postsMap");
-        console.log(postsMap);
+        console.log("postMap");
+        console.log(postMap);
         res.render("single-post",{
             loggedIn:req.session.loggedIn,
-            postData:postsMap,
+            postData:postMap,
             userLoggedIn:req.session.user_id,
             id: req.params.id,
         })
