@@ -14,6 +14,7 @@ router.get('/' , async (req, res) => {
         res.json(dbUserData)
     } catch (error) {
         res.status(500).json(err) 
+
     }
 })
 
@@ -28,7 +29,7 @@ router.post('/', async(req, res) => {
         if (checkExistingEmail){
             console.log("Email already in use. Please try a different email");
             res.status(400).json({message:"Email already in use"})
-            return
+
         }
 
         const dbUserData = await User.create({
@@ -47,12 +48,13 @@ router.post('/', async(req, res) => {
     }
     catch(err){
         res.status(500).json(err);
+        return
     }
 })
 
 router.post("/login",async(req,res)=>{
     try{
-        const dbUserData = await user.findOne({
+        const dbUserData = await User.findOne({
             where:{
                 email:req.body.email
             }
@@ -65,7 +67,8 @@ router.post("/login",async(req,res)=>{
         const validpassword = await dbUserData.checkPassword(req.body.password)
         if (!validpassword){
             console.log("wrong password");
-            res.status(400).json({message:"incorrect email or password"})
+            res.status(400).json({message:"incorrect email or password"});
+            return
         }
         req.session.save(()=>{
             req.session.user_id = dbUserData.id;

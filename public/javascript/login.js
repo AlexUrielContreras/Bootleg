@@ -1,3 +1,5 @@
+const errorEl = document.querySelector('#err-message')
+
 async function loginFormHandler(event) {
     event.preventDefault();
 
@@ -19,9 +21,14 @@ async function loginFormHandler(event) {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert(response.statusText);
+            errorEl.textContent = 'Invalid Email or Password'
         }
     }
 }
 
+function errorHandling() {
+    errorEl.textContent = ' '
+}
+
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+document.querySelector('#password-login').addEventListener('focus', errorHandling);

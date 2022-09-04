@@ -77,6 +77,11 @@ header {
     margin: 1.8vh 0
 }
 
+#err-message {
+    color: red;
+    margin: 10px 0 
+}
+
 
 @media screen and (min-width: 550px ) {
     /*  Login/out Styles  */
