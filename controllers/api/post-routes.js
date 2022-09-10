@@ -11,7 +11,7 @@ const { v4: uuidv4 } = require('uuid');
 router.post("/", withAuth, upload.single("image"), async (req, res) => {
   try { 
     const data = await sharp(req.files.image_input.data)
-      .resize(400, 500, {
+      .resize(390, 500, {
         fit: sharp.fit.inside,
         withoutEnlargement: true,
       }).toBuffer();

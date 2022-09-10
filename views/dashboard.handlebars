@@ -10,23 +10,23 @@ it will redirect the user to the /post/UUID route and display the single-post.ha
   <form class="new-post-form">
     <div class="post-capt">
       <label name="caption">Caption</label>
-      <input type="text" id="caption" name="caption"/>
+      <input type="text" id="caption" name="caption" />
     </div>
     <div class="post-img">
       <label for="image-input">Image</label>
-      <input required accept="image/*"  type="file" id="image-input" name="image_input" />
+      <input required accept="image/*" type="file" id="image-input" name="image_input" />
     </div>
     <div class="submit-btn">
-      <input type="submit" class="upload-btn" value="Upload"/>
+      <input type="submit" class="upload-btn" value="Upload" />
     </div>
   </form>
 </section>
 <script src="./javascript/add-post.js"></script>
 {{/if}}
 <section class="post-container">
-  <ul>
+  <ul class="post-list">
     {{#each postData as |post|}}
-    <li>
+    <li class="post-list-items">
       <!--this is what the info looks like.
       user.username is the user who created the post
       concat is a helper i made that returns the 2 given parameters in a concat state
@@ -35,11 +35,16 @@ it will redirect the user to the /post/UUID route and display the single-post.ha
       caption is the caption for the post. can be optionally empty
       -->
       {{log post}}
-      <div class="username-post">{{user.username}}</div>
+      <div class="username-post">
+        {{user.username}}
+      </div>
       <div class="img-post">
         <a href={{concat "/post/" post.id}}>
-        <img src={{BufferToImg post.img}}>
-        <div>{{post.caption}}</div>
+          <img src={{BufferToImg post.img}}>
+        </a>
+      </div>
+      <div class="post-caption">
+        {{post.caption}}
       </div>
     </li>
     {{/each}}
@@ -47,13 +52,13 @@ it will redirect the user to the /post/UUID route and display the single-post.ha
 </section>
 <!-- Will only be available if logged in -->
 {{#if loggedIn}}
-  {{!-- <section>
-    <h2>Delete Post</h2>
-    <form class="delete-post-form" action="./api/posts" method="POST" enctype="multipart/form-data">
-      <div>
-        <input type="text" id="delete-post"  placeholder="Title" name="delete-post" />
-        <input type="submit" class="btn" value="Delete"/>
-      </div>
-    </form>
-  </section> --}}
+{{!-- <section>
+  <h2>Delete Post</h2>
+  <form class="delete-post-form" action="./api/posts" method="POST" enctype="multipart/form-data">
+    <div>
+      <input type="text" id="delete-post" placeholder="Title" name="delete-post" />
+      <input type="submit" class="btn" value="Delete" />
+    </div>
+  </form>
+</section> --}}
 {{/if}}

@@ -1,4 +1,4 @@
-* {
+*, *::after, *::before {
     box-sizing: border-box
 }
 
@@ -94,6 +94,8 @@ header {
 
 /*   Dashboard Styles   */
 
+    /* Create Post Form Styles */
+
 .crt-post {
     border: 2px solid black;
     margin: 2.5vh auto;
@@ -129,6 +131,48 @@ header {
 .upload-btn {
     width: 150px;
 }
+    /* Post Styles */
+
+.post-container ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-list-items {
+    margin-bottom: 5vh;
+    width: clamp(390px, 35vw, 600px);
+}
+
+
+.username-post {
+    font-size: clamp(1.1rem, 1.3vw, 2.5rem);
+    font-weight: 600;
+    padding: 1vh 6px 
+}
+
+.img-post {
+    min-width: 100%;
+    position: relative;
+    text-align: center
+}
+
+.img-post::before,
+.img-post::after {
+    content: ' ';
+    min-width: 100%;
+    min-height: 3px;
+    position: absolute;
+    left: 0;
+    background-color: black
+}
+
+.post-caption {
+    padding: 10px;
+    font-size: clamp(15px, 1.2vw, 2rem);
+    word-break: break-all
+}
+
 
 
 @media screen and (min-width: 600px ) {
@@ -138,9 +182,11 @@ header {
     }
 
     /*   Dashboard Styles */
-    .crt-post {
-       
-        margin: 2.5vh auto
+    img {
+        padding: 1vh 0
     }
 
+    .img-post::after {
+        bottom: 0;
+    }
 }
