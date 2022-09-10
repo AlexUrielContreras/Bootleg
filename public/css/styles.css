@@ -18,7 +18,12 @@ p {
     margin: 0;
 }
 
-input {
+ul {
+    list-style: none;
+    padding: 0
+}
+
+.login-out-container div form input {
     padding: .7rem;
     border-radius: 10px;
     background-color: lightgrey;
@@ -87,10 +92,55 @@ header {
     margin-bottom: 10px
 }
 
+/*   Dashboard Styles   */
 
-@media screen and (min-width: 550px ) {
+.crt-post {
+    border: 2px solid black;
+    margin: 2.5vh auto;
+    width: clamp(350px, 35vw, 80vw)
+}
+
+.crt-post h2 {
+    margin: 2vh 1vh
+}
+
+.new-post-form {
+    padding: 1vh;
+}
+
+.new-post-form div input {
+    padding: .5rem;
+    margin-top: .5vh
+}
+
+.post-capt{
+    display: flex;
+    flex-direction:column
+}
+
+.post-img {
+    margin: 1.5vh 0
+}
+
+.submit-btn {
+    text-align: center
+}
+
+.upload-btn {
+    width: 150px;
+}
+
+
+@media screen and (min-width: 600px ) {
     /*  Login/out Styles  */
     .login-out-container {
         flex-direction: row
     }
+
+    /*   Dashboard Styles */
+    .crt-post {
+       
+        margin: 2.5vh auto
+    }
+
 }
