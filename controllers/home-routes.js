@@ -57,7 +57,6 @@ router.get('/signup', (req, res) => {
 //display single post
 router.get("/post/:id",async(req,res)=>{
     try{
-        console.log(req.params.uuid);
         const dbPostData= await Post.findAll({
             where: {
                 id: req.params.id
@@ -76,7 +75,7 @@ router.get("/post/:id",async(req,res)=>{
                 }
             ]
         });
-        var postMap = dbPostData.map((postsData)=>
+        let postMap = dbPostData.map((postsData)=>
             postsData.get({plain:true})
         );
         postMap=postMap[0]
@@ -85,8 +84,7 @@ router.get("/post/:id",async(req,res)=>{
                 postMap["comments"][key]["userLoggedIn"]=req.session.user_id
             }
         }
-        console.log("postMap");
-        console.log(postMap);
+
         res.render("single-post",{
             loggedIn:req.session.loggedIn,
             postData:postMap,

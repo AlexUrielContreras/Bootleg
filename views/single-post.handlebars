@@ -19,28 +19,34 @@
     ETC
 -->
 <!--This displays the username, image, time, and data of the post -->
-<div class="test">
-<div class="sp-title-img">
-    <div class="username">{{postData.user.username}}</div>
-    <div>{{format_date postData.createdAt}}</div>
-    <div>{{format_time postData.createdAt}}</div>
+<div class="sp-post">
+    <div class="sp-header">
+        <div class="sp-username">{{postData.user.username}}</div>
+        <div class="sp-date">
+            {{format_date postData.createdAt}}
+        </div>
+    </div>
+    <img class="sp-img" src={{BufferToImg postData.img}}>
+    <div class="cpt-del-comt">
+        <div class="sp-caption">{{postData.caption}}</div>
+        {{#if (equalto userLoggedIn postData.user_id)}}
+        <form class="delete-post-form" id={{postData.id}}>
+            <button type="submit">Delete</button>
+        </form>
+        {{/if}}
+    </div>
 </div>
-<img class="sp-img" src={{BufferToImg postData.img}}> 
-<div class="cpt-del-comt">
-    <div class="caption">{{postData.caption}}</div>
-    {{#if (equalto userLoggedIn postData.user_id)}}
-    <form class="delete-post-form" id={{postData.id}}>
-        <input type="submit" value="Delete">
-    </form>
-    {{/if}}
+<div class="sp-add-comment">
     <!--This is a form only shown to those that are logged in. It allows them to comment -->
     {{#if loggedIn}}
-    <form class="comment-form"id={{postData.id}}>
-        <textarea name="blog-content" id="blog-content" cols="30" rows="5"></textarea>
-        <input value="Reply" type="submit">
+    <form class="comment-form" id={{postData.id}}>
+        <label>
+            <span>Comment</span>
+            <textarea name="blog-content" id="blog-content" cols="40" rows="5"></textarea>
+        </label>
+        <button type="submit">Reply</button>
     </form>
     {{/if}}
-</div>
 </div>
 <!--This is a loop that spawns comments. I couldve used a partial, but I got very lazy.
 feel free to use a partial to really detail this. 
@@ -50,20 +56,24 @@ feel free to use a partial to really detail this.
     <div class="comt-header">
         <h2>
             {{user.username}}
-            {{format_date createdAt}}
-            {{format_time createdAt}}
         </h2>
+        <p>{{format_date createdAt}}</p>
     </div>
-<p class="comment-detail">{{content}}</p>
-
-{{#if (equalto userLoggedIn user_id)}}
-<form class="delete-comment-form">
-    <input type="submit" value="Delete">
-</form>
-<input class="toggle-comment-textarea" placeholder="Edit Comment"></input>
-{{/if}}
+    <div>
+        <p class="comment-detail">
+            {{content}}
+        </p>
+    </div>
+    <div>
+        {{#if (equalto userLoggedIn user_id)}}
+        <form class="delete-comment-form">
+            <button type="button" class="delete-reply">Delete</button>
+        </form>
+        <!-- <input class="toggle-comment-textarea" placeholder="Edit Comment" /> -->
+        {{/if}}
+    </div>
 </div>
 {{/each}}
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/delete-content.js"></script>
-<script src="/javascript/edit-content.js"></script>
+<!-- <script src="/javascript/edit-content.js"></script> -->

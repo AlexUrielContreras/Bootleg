@@ -23,6 +23,10 @@ ul {
     padding: 0
 }
 
+textarea {
+    resize:none
+}
+
 .login-out-container div form input {
     padding: .7rem;
     border-radius: 10px;
@@ -144,7 +148,6 @@ header {
     width: clamp(390px, 35vw, 600px);
 }
 
-
 .username-post {
     font-size: clamp(1.1rem, 1.3vw, 2.5rem);
     font-weight: 600;
@@ -167,10 +170,60 @@ header {
     background-color: black
 }
 
+.sp-caption,
 .post-caption {
     padding: 10px;
     font-size: clamp(15px, 1.2vw, 2rem);
     word-break: break-all
+}
+
+/*  Single Post Styles  */
+
+.sp-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem
+}
+.sp-header div {
+    margin: 0 1.5vw
+}
+
+.delete-post-form {
+    text-align: end;
+    margin: 1.5vh 1vw
+}
+
+.comment-form {
+    text-align: center
+}
+
+.sp-add-comment {
+    margin-top: 3vh
+}
+
+.comment-form label textarea {
+    display: block;
+    margin: 1vh auto
+}
+
+.comt-container {
+    margin: 2vh 0 ;
+    padding: 0 1.5vw
+}
+
+.comt-container div {
+    margin: 7px 0
+}
+
+.comt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end
+}
+
+
+.comment-detail {
+    word-break:break-all
 }
 
 

@@ -9,7 +9,8 @@ const {
 } = require('../../models');
 const withAuth = require('../../utils/auth');
 //Delete a comment
-router.delete("/",async (req,res)=>{
+router.delete("/", async (req,res)=>{
+    console.log(req.body)
     try{
         Comment.destroy({
             where:{
