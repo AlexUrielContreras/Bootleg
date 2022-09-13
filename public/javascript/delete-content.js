@@ -3,7 +3,7 @@ var deletecomment = document.querySelectorAll(".delete-comment-form")
 for (var x=0; x<deletecomment.length;x++){
     deletecomment[x].addEventListener("submit",async(event)=>{
         event.preventDefault()
-        const response = await fetch("/api/comment/",{
+        const response = await fetch("/api/comments/",{
             method:"DELETE",
             body: JSON.stringify({id:event.path[1].id}),
             headers: { 'Content-Type': 'application/json' },

@@ -3,15 +3,15 @@
  */
 const router = require('express').Router();
 const {
-    user,
-    posts,
-    comment
+    User,
+    Post,
+    Comment
 } = require('../../models');
 const withAuth = require('../../utils/auth');
 //Delete a comment
 router.delete("/",async (req,res)=>{
     try{
-        comment.destroy({
+        Comment.destroy({
             where:{
                 id:req.body.id
             }
@@ -22,11 +22,12 @@ router.delete("/",async (req,res)=>{
         res.status(500).json(err)
     }
 });
+
 //Create a comment
 router.post('/', withAuth, (req, res) => {
     console.log(req.body);
-    comment.create({
-        content: req.body.comment_text,
+    Comment.create({
+        content: req.body.content,
         post_id: req.body.post_id,
         user_id: req.session.user_id
     })
@@ -36,18 +37,19 @@ router.post('/', withAuth, (req, res) => {
         res.status(400).json(err);
     });
 });
+
 //Edit post
 router.post("/edit",withAuth,async (req,res)=>{
     try{
         console.log(req.body);
-        const checkRow = await comment.findByPk(req.body.id)
+        const checkRow = await Comment.findByPk(req.body.id)
         console.log(checkRow);
         if (checkRow.dataValues.user_id==req.session.user_id){
             console.log("user owns comment");
         }else{
             res.status(500).json()
         }
-        const updatedrow= await comment.update(
+        const updatedrow= await Comment.update(
             {
                 content:req.body.message
             },
