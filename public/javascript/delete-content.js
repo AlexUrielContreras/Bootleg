@@ -1,23 +1,21 @@
 //when someone clicks on a delete button for a reply, call to delete it. 
-let deleteComment = document.querySelectorAll('.delete-comment-form');
-console.log(deleteComment)
+const commentElList = document.querySelectorAll('.delete-reply');
 
-deleteComment.forEach(deleteCmt => {
-  deleteCmt.addEventListener("click", deleteC)
+commentElList.forEach(comment => {
+  comment.addEventListener("click", deleteComment)
 })
 
-async function deleteC(e) {
+async function deleteComment(e) {
   e.preventDefault()
-  console.log(e.path[1])
 
   const response = await fetch("/api/comments", {
     method: "DELETE",
-    body: JSON.stringify({ id: e.path[1].id }),
+    body: JSON.stringify({ id: e.path[3].id }),
     headers: { 'Content-Type': 'application/json' },
   });
 
   if (response.ok) {
-    alert('nice')
+    document.location.reload()
   } else {
     alert('Failed to make that request.');
   }
