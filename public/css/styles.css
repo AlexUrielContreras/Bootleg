@@ -40,6 +40,7 @@ button {
     color: lightgrey;
     border: none;
     border-radius: 10px;
+    cursor: pointer
 }
 
 a {
@@ -180,18 +181,19 @@ header {
 /*  Single Post Styles  */
 
 .sp-post {
-    text-align: center;
     width: clamp(390px, 60vw, 1000px);
-    margin: 0 auto
+    margin: 4vh auto;
+    text-align: center;
 }
 
 .sp-header {
     display: flex;
     justify-content: space-between;
-    font-size: 1.4rem
+    font-size: 1.3rem
 }
+
 .sp-username, .sp-date {
-    margin: 0 1.5vw
+    margin: 0 1vw
 }
 
 .delete-post-form {
@@ -199,28 +201,38 @@ header {
     margin: 1.5vh 1vw
 }
 
+.comt-wrapper {
+    border: 1px solid black;
+    width: clamp(390px, 60vw, 1000px);
+    margin: 0 auto;
+    padding-bottom: 2vh;
+    background-color: rgb(80, 49, 49)
+}
+
 .sp-add-comment {
-    margin: 3vh 0
+    margin: 1.5vh 0
 }
 
 .comment-form {
     text-align: center;
-    padding: 15px 0
 }
 
 .comment-form label textarea {
     display: block;
+    min-width: 80%;
     margin: 1vh auto
 }
 
-.comt-wrapper {
-    border: 2px solid black;
-    width: clamp(390px, 60vw, 1000px);
-    margin: 0 auto
+.form-title {
+    color: white;
+    font-size: clamp(1.5rem,2vw, 3rem)
 }
 
 .comt-container {
-    padding: 5px 1.5vw;
+    padding: 5px;
+    background-color: white;
+    border: 1px solid black;
+    margin: 2vh 3vw;
 }
 
 .comt-container div {
@@ -235,6 +247,10 @@ header {
 
 .comment-detail {
     word-break:break-all
+}
+
+.delete-btn-div {
+    text-align: end
 }
 
 
@@ -253,4 +269,9 @@ header {
     .img-post::after {
         bottom: 0;
     }
-}
+
+    /*  Single Post Style  */ 
+    .sp-header {
+        font-size: 1.6rem
+    }
+}   
