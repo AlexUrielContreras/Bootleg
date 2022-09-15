@@ -1,6 +1,3 @@
-<a href="/" class="go-back"> &larr; Back to homepage</a>
-<br>
-<br>
 <!--
     structure: 
 
@@ -21,7 +18,9 @@
 <!--This displays the username, image, time, and data of the post -->
 <div class="sp-post">
     <div class="sp-header">
-        <div class="sp-username">{{postData.user.username}}</div>
+        <div class="sp-username">
+            {{postData.user.username}}
+        </div>
         <div class="sp-date">
             {{format_date postData.createdAt}}
         </div>
@@ -36,6 +35,7 @@
         {{/if}}
     </div>
 </div>
+<section class="comt-wrapper">
 <div class="sp-add-comment">
     <!--This is a form only shown to those that are logged in. It allows them to comment -->
     {{#if loggedIn}}
@@ -66,14 +66,12 @@ feel free to use a partial to really detail this.
     </div>
     <div>
         {{#if (equalto userLoggedIn user_id)}}
-        <form class="delete-comment-form">
             <button type="button" class="delete-reply">Delete</button>
-        </form>
-        <!-- <input class="toggle-comment-textarea" placeholder="Edit Comment" /> -->
         {{/if}}
     </div>
 </div>
 {{/each}}
+</section>
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/delete-content.js"></script>
 <!-- <script src="/javascript/edit-content.js"></script> -->

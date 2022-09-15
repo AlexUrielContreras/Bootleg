@@ -26,5 +26,9 @@ async function loginFormHandler(event) {
     }
 }
 
+function errorHandling() {
+    errorEl.textContent = ' '
+}
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+document.querySelector('#password-login').addEventListener('focus', errorHandling);

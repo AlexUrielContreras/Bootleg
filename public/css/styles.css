@@ -179,12 +179,18 @@ header {
 
 /*  Single Post Styles  */
 
+.sp-post {
+    text-align: center;
+    width: clamp(390px, 60vw, 1000px);
+    margin: 0 auto
+}
+
 .sp-header {
     display: flex;
     justify-content: space-between;
     font-size: 1.4rem
 }
-.sp-header div {
+.sp-username, .sp-date {
     margin: 0 1.5vw
 }
 
@@ -193,12 +199,13 @@ header {
     margin: 1.5vh 1vw
 }
 
-.comment-form {
-    text-align: center
+.sp-add-comment {
+    margin: 3vh 0
 }
 
-.sp-add-comment {
-    margin-top: 3vh
+.comment-form {
+    text-align: center;
+    padding: 15px 0
 }
 
 .comment-form label textarea {
@@ -206,9 +213,14 @@ header {
     margin: 1vh auto
 }
 
+.comt-wrapper {
+    border: 2px solid black;
+    width: clamp(390px, 60vw, 1000px);
+    margin: 0 auto
+}
+
 .comt-container {
-    margin: 2vh 0 ;
-    padding: 0 1.5vw
+    padding: 5px 1.5vw;
 }
 
 .comt-container div {
@@ -220,7 +232,6 @@ header {
     justify-content: space-between;
     align-items: end
 }
-
 
 .comment-detail {
     word-break:break-all

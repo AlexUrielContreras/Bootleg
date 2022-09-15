@@ -7,10 +7,11 @@ commentElList.forEach(comment => {
 
 async function deleteComment(e) {
   e.preventDefault()
+  console.log(e.path)
 
   const response = await fetch("/api/comments", {
     method: "DELETE",
-    body: JSON.stringify({ id: e.path[3].id }),
+    body: JSON.stringify({ id: e.path[2].id }),
     headers: { 'Content-Type': 'application/json' },
   });
 
