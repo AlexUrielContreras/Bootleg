@@ -5,6 +5,7 @@ const {
     User,
     Comment
 } = require('../models');
+
 const withAuth = require('../utils/auth');
 
 //Get all images
@@ -37,6 +38,7 @@ router.get('/', (req, res) => {
             res.status(500).json(err);
         });
 });
+
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');

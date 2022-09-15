@@ -28,6 +28,7 @@ async function signupFormHandler(event) {
 };
 
 function customError() {
+    
     const pwInput = document.querySelector('#password-signup')
     const validityState = pwInput.validity
 
