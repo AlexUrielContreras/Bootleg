@@ -38,6 +38,6 @@
   
   ## Links
   
-  Deployed site: https://group-project-bootleg.herokuapp.com/  
+  Deployed site: https://bootleg-clone.herokuapp.com/ 
   Github repository: https://github.com/AlexUrielContreras/Bootleg
   
