@@ -6,6 +6,7 @@ html, body{
     height: 100%;
     margin: 0 ;
     font-family: 'Roboto', sans-serif;
+    background-color: #edf2f4
 }
 
 h1,
@@ -14,8 +15,10 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+a {
     margin: 0;
+    color: #2b2d42
 }
 
 ul {
@@ -45,11 +48,9 @@ button {
 
 a {
     text-decoration: none;
-    color: black
 }
 
-header {
-    margin: 0 auto;
+.header {
     border-bottom: solid;
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -58,8 +59,8 @@ header {
     align-items: center;
 }
 
-.not-login {
-    font-size: 1.5rem
+.login-btn{
+    font-size: 1.7rem
 }
  
 .button-loggedin a  {
@@ -98,6 +99,7 @@ header {
 }
 
 /*   Dashboard Styles   */
+
 
     /* Create Post Form Styles */
 
@@ -138,6 +140,7 @@ header {
 }
     /* Post Styles */
 
+
 .post-container ul {
     display: flex;
     flex-direction: column;
@@ -149,8 +152,8 @@ header {
     width: clamp(390px, 35vw, 600px);
 }
 
-.username-post {
-    font-size: clamp(1.1rem, 1.3vw, 2.5rem);
+.post-username {
+    font-size: clamp(1.4rem, 1.5vw, 2.5rem);
     font-weight: 600;
     padding: 1vh 6px 
 }
@@ -161,9 +164,13 @@ header {
     text-align: center
 }
 
+img {
+    padding: 1vh 0
+}
+
 .img-post::before,
 .img-post::after {
-    content: ' ';
+    content: '';
     min-width: 100%;
     min-height: 3px;
     position: absolute;
@@ -171,11 +178,15 @@ header {
     background-color: black
 }
 
+.img-post::after {
+    bottom: 0;
+}
+
 .sp-caption,
 .post-caption {
     padding: 10px;
-    font-size: clamp(15px, 1.2vw, 2rem);
-    word-break: break-all
+    font-size: clamp(.95rem, 1.2vw, 2rem);
+    word-break: break-word
 }
 
 /*  Single Post Styles  */
@@ -261,14 +272,6 @@ header {
         flex-direction: row
     }
 
-    /*   Dashboard Styles */
-    img {
-        padding: 1vh 0
-    }
-
-    .img-post::after {
-        bottom: 0;
-    }
 
     /*  Single Post Style  */ 
     .sp-header {
