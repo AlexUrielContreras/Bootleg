@@ -1,44 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset='utf-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
-  <title>Bootleg</title>
+		<title>Bootleg</title>
 
-  <link rel="stylesheet" href="/css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-  
-</head>
+		<link rel='stylesheet' href='/css/index.css' />
+		<link
+			href='https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap'
+			rel='stylesheet'
+		/>
+		<link
+			href='https://fonts.googleapis.com/css2?family=Roboto&display=swap'
+			rel='stylesheet'
+		/>
+		<link
+			rel='stylesheet'
+			href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+		/>
 
-<body>
- 
-    <header class="main-header">
-      <h1>
-        <a href="/" class="title">Bootleg</a>
-      </h1>
-        {{#if loggedIn}}
-          <div class="button-loggedin">
-            <a href="/" class="btn"><i class='fa fa-home'></i></a>
-            <!-- <button class="btn" id="modal-btn"><i class='fa fa-plus'></i></button> -->
-            <a href="#" id="logout" class="btn"><i class='fa fa-sign-out'></i></a>
-          </div>
-        {{else}}
-          <div>
-            <a href="/login" class="not-login">Login</a>
-          </div>
-        {{/if}}
-    </header>
-    <main>
-        {{{ body }}}
-    </main>
+		{{#if loggedIn}}
+			<script src='/javascript/log-out.js' defer></script>
+		{{/if}}
 
-  {{#if loggedIn}}
-    <script src="/javascript/log-out.js"></script>
-  {{/if}}
-  
-</body>
+	</head>
+
+	<body>
+
+		<header class='main-header'>
+			<h1>
+				<a href='/' class='title'>Bootleg</a>
+			</h1>
+			{{#if loggedIn}}
+				<div class='button-loggedin'>
+					<a href='/' class='btn'><i class='fa fa-home'></i></a>
+					<!-- <button class="btn" id="modal-btn"><i class='fa fa-plus'></i></button> -->
+					<a href='#' id='logout' class='btn'><i class='fa fa-sign-out'></i></a>
+				</div>
+			{{else}}
+				<div>
+					<a href='/login' class='not-login'>Login</a>
+				</div>
+			{{/if}}
+		</header>
+		<main>
+			{{{body}}}
+		</main>
+	</body>
 </html>
