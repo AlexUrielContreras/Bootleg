@@ -54,7 +54,7 @@
     feel free to use a partial to really detail this. 
     -->
     {{#each postData.comments}}
-    <div class="comt-container" data-debouncer="false" id={{id}}>
+    <div class="comt-container" data-debouncer="false" >
         <div class="comt-header">
             <h2>
                 {{user.username}}
@@ -68,7 +68,7 @@
         </div>
         <div class="delete-btn-div">
             {{#if (equalto userLoggedIn user_id)}}
-            <button type="button" class="delete-reply">Delete</button>
+            <button type="button" class="delete-reply" id={{id}}>Delete</button>
             {{/if}}
         </div>
     </div>

@@ -217,7 +217,7 @@ img {
     width: clamp(390px, 60vw, 1000px);
     margin: 0 auto;
     padding-bottom: 2vh;
-    background-color: rgb(80, 49, 49)
+    background-color: #8d99ae
 }
 
 .sp-add-comment {

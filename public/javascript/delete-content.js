@@ -2,16 +2,17 @@
 const commentElList = document.querySelectorAll('.delete-reply');
 
 commentElList.forEach(comment => {
+  console.log(comment)
   comment.addEventListener("click", deleteComment)
 })
 
 async function deleteComment(e) {
   e.preventDefault()
-  console.log(e.path)
+  console.log(e)
 
   const response = await fetch("/api/comments", {
     method: "DELETE",
-    body: JSON.stringify({ id: e.path[2].id }),
+    body: JSON.stringify({ id: e.srcElement.id }),
     headers: { 'Content-Type': 'application/json' },
   });
 
