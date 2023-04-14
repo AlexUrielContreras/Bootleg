@@ -21,6 +21,10 @@ a {
     color: #2b2d42
 }
 
+a {
+    text-decoration: none;
+}
+
 ul {
     list-style: none;
     padding: 0
@@ -30,7 +34,28 @@ textarea {
     resize:none
 }
 
-.login-out-container div form input {
+.header {
+    min-height: 6vh;
+    border-bottom: solid;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2vw;
+    align-items: center;
+}
+
+/*      Signup/out Form Styles     */
+
+.login-out-container {
+    min-height: 94vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.signup-form form input,
+.login-form form input {
     padding: .7rem;
     border-radius: 10px;
     background-color: lightgrey;
@@ -46,19 +71,6 @@ button {
     cursor: pointer
 }
 
-a {
-    text-decoration: none;
-}
-
-.header {
-    border-bottom: solid;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2vw;
-    align-items: center;
-}
-
 .login-btn{
     font-size: 1.7rem
 }
@@ -68,18 +80,8 @@ a {
     margin: 0 10px
 }
 
-/*      Signup/out Form Styles     */
-
-.login-out-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 5vh;
-}
-
 .signup-form, .login-form {
-    margin: 5vh 5vw
+    margin: 0 10vw 10vw;
 }
 
 .signup-form label, 
@@ -90,7 +92,7 @@ a {
 
 .signup-form h2,
 .login-form h2 {
-    font-size: 2rem
+    font-size: 2rem;
 }
 
 #err-message {

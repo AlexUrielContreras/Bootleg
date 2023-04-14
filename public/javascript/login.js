@@ -7,21 +7,27 @@ async function loginFormHandler(event) {
     const password = document.querySelector('#password-login').value.trim();
 
     if (email && password) {
-        const response = await fetch('/api/users/login', {
-            method: 'post',
-            body: JSON.stringify({
-                email,
-                password
-            }),
-            headers: {
-                'Content-Type': 'application/json'
+        try { 
+            const response = await fetch('/api/users/login', {
+                method: 'post',
+                body: JSON.stringify({
+                    email,
+                    password
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                document.location.replace('/');
+            } else {
+                errorEl.textContent = 'Invalide Email or Password'
             }
-        });
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            errorEl.textContent = 'Invalid Email or Password'
-        }
+            
+        } catch (error) {
+            console.log(error)
+        }   
     }
 }
 
